@@ -3,6 +3,9 @@
 -- FOREIGN KEY + Relationships
 -- UNIQUE, CHECK, INDEX, ON DELETE CASCADE
 
+-- create table named departments(root table) Bussines units with budget
+-- key concept: PRIMARY KEY, UNIQUE, CHECK
+
 CREATE TABLE departments (
     dept_id INT NOT NULL AUTO_INCREMENT,
     name VARCHAR(100) NOT NULL,
@@ -11,15 +14,17 @@ CREATE TABLE departments (
     created_date DATE NOT NULL DEFAULT (CURRENT_DATE),
     active ENUM('active', 'inactive') NOT NULL DEFAULT 'active',
 
+-- 1st constraint as primary key for dept_id row
     CONSTRAINT pk_departments
 		PRIMARY KEY (dept_id),
-        
+ -- 2nd constraint as unique for name row       
     CONSTRAINT uq_dept_name
 		UNIQUE (name),
-
+-- 3rd constraint as check for budget row
     CONSTRAINT chk_dept_budget 
 		CHECK (budget >= 0)
 )
+--	Use the InnoDB storage engine 
 ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 ;
 
