@@ -1,4 +1,6 @@
- 1. Connect via MySQL Workbench (easiest method)
+01_02 Connecting to the server
+
+Connect via MySQL Workbench (easiest method)
  Step 1: Open Workbench
 
 Launch:
