@@ -4,21 +4,85 @@ MySQL HR system
 
 01. Create tables
 
+--CREATE DATABASE
+--CREATE TABLE
+--FOREIGN KEY
+--CHECK
+--UNIQUE
+--INDEX
+
 02. Insert Data
+
+--20-50 Employess
+--REALIST PROJECT
+--REALIST ATTENDANCE
+--DIF SALARIES
 
 03. Select Queries
 
+--WHERE
+--LIKE
+--BETWEEN
+--ORDER BY
+--LIMIT
+--CASE WHEN
+AGREGATE FUNCTIONS
+
 04. Joins Report
+
+--INNER JOIN
+--LEFT JOIN
+--SELF-JOIN
+--GROUP BY
+-- RAPORTS ON MULTIPLE TABELS
+-- SELF JOIN FOR MANAGER HIERACHY
 
 05. views CTe
 
+--ADD CREATE VIEW
+--WITH (CTE)
+
+* CREATE VIEW active_projects AS
+SELECT *
+FROM PROJECTS
+WHERE STATUS = 'active';
+
+CTE:
+* WITH dept_salary AS (
+SELECT dept_id, AVG(salary) avg_salary
+FROM employees
+GROUP BY dept_id
+)
+SELECT *
+FROM avg_salary > 6000;
+
 06. Procedure Triggers
+
+* Explain in readme:
+Every salary update is automatically audited using a BEFORE UPDATE trigger.
 
 07. Indexes Explain
 
+*
+
 08. backup
 
+*
+
 python
+
+simple app in python
+1. add employee
+2. Show Employees
+3. Update salaries
+4. Delete employess
+5. Show attendance
+
+USE:
+
+- mysql--connector-python
+-querry parametrizate *
+
 
 01. app.py
 
