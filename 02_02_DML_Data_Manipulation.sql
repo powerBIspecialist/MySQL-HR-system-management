@@ -1,9 +1,4 @@
 -- INSERT (single row + multiple rows)
--- UPDATE with WHERE
--- DELETE WITH WHERE
--- INSERT ON DUPLICATE KEY UPDATE
--- TRANSACTIONS: START TRANSACTION, COMMIT, ROLLBACK
-
 
 INSERT INTO departments (name, location, budget, active)
 VALUES
@@ -87,3 +82,9 @@ VALUES
 (9, '2026-05-05', 8.00, 'work', 'Recruiting'),
 (11, '2026-05-05', 8.00, 'work', NULL),
 (12, '2026-05-05', 8.00, 'work', NULL);
+
+
+-- UPDATE with WHERE
+-- DELETE WITH WHERE
+-- INSERT ON DUPLICATE KEY UPDATE
+-- TRANSACTIONS: START TRANSACTION, COMMIT, ROLLBACK
