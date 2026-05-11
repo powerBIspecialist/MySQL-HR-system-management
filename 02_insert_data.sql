@@ -55,7 +55,54 @@ VALUES
 ('HR System Upgrade', 'Internal HR platform upgrade', '2025-01-01', NULL, 'ACTIVE', 50000, 1),
 ('Mobile App', 'Company mobile app development', '2025-02-01', NULL, 'ACTIVE', 120000, 2),
 ('Payroll Automation', 'Automate salary processing', '2025-03-01', NULL, 'ACTIVE', 80000, 3),
-('Website Redesign', 'New corporate website', '2025-01-15', '2025-06-01', 'ACTIVE', 60000, 2);
+('Website Redesign', 'New corporate website', '2025-01-15', '2025-06-01', 'ACTIVE', 60000, 2)
+
+ON DUPLICATE KEY UPDATE
+description = VALUES(description),
+start_date = VALUES(start_date),
+end_date = VALUES(end_date),
+status = VALUES(status),
+budget = VALUES(budget),
+dept_id = VALUES(dept_id);
+
+
+
+INSERT INTO emp_projects (emp_id, project_id, role, hours_worked, assigned_date)
+VALUES
+(4, 1, 'Backend Developer', 120, '2025-02-01'),
+(5, 1, 'Frontend Developer', 110, '2025-02-01'),
+(6, 1, 'DevOps Engineer', 140, '2025-02-01'),
+(4, 2, 'Backend Developer', 160, '2025-01-10'),
+(3, 2, 'Tech Lead', 180, '2025-01-10'),
+(21, 3, 'Data Scientist', 150, '2025-03-01'),
+(22, 3, 'ML Engineer', 140, '2025-03-01'),
+(22, 4, 'Data Scientist', 100, '2025-04-01'),
+(26, 5, 'Security Engineer', 130, '2025-02-15'),
+(25, 5, 'Security Lead', 170, '2025-02-15'),
+(11, 6, 'Accountant', 90, '2025-01-20'),
+(12, 6, 'Financial Analyst', 95, '2025-01-20'),
+(8, 7, 'HR Specialist', 80, '2025-01-01'),
+(9, 7, 'Recruiter', 70, '2025-01-01'),
+(2, 8, 'DevOps Support', 100, '2025-02-01'),
+(3, 8, 'Engineering Lead', 110, '2025-02-01'),
+(12, 9, 'Financial Analyst', 85, '2025-03-01'),
+(11, 9, 'Accountant', 90, '2025-03-01'),
+(18, 10, 'Operations Analyst', 75, '2025-01-15');
+
+INSERT INTO attendance (emp_id, work_date, hours, record_type, notes)
+VALUES
+(4, '2026-05-05', 8.00, 'work', 'Full workday'),
+(4, '2026-05-06', 7.50, 'work', 'Partial remote'),
+(5, '2026-05-05', 8.00, 'work', NULL),
+(5, '2026-05-06', 6.00, 'work', 'Doctor appointment'),
+(6, '2026-05-05', 9.00, 'work', 'Overtime deployment'),
+(21, '2026-05-05', 8.00, 'work', 'Model training'),
+(22, '2026-05-05', 8.00, 'work', 'Data preprocessing'),
+(11, '2026-05-05', 8.00, 'work', NULL),
+(12, '2026-05-05', 8.00, 'work', NULL),
+(8, '2026-05-05', 8.00, 'work', 'HR interviews'),
+(9, '2026-05-05', 8.00, 'work', 'Recruiting'),
+(26, '2026-05-05', 8.00, 'work', 'Security monitoring');
 
 
 
