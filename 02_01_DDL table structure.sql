@@ -3,8 +3,10 @@
 -- FOREIGN KEY + Relationships
 -- UNIQUE, CHECK, INDEX, ON DELETE CASCADE
 
--- create table named departments(root table) Bussines units with budget
+-- -----------------------------------------------------------------------------------------
+-- create table named departments(Root Table) Bussines units with budget
 -- key concept: PRIMARY KEY, UNIQUE, CHECK
+-- All employees and project belongs to a Departament.
 
 CREATE TABLE departments (
     dept_id INT NOT NULL AUTO_INCREMENT,
@@ -28,7 +30,10 @@ CREATE TABLE departments (
 ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 ;
 
+-- -----------------------------------------------------------------------------------------
 
+-- create table named employees(Root table)
+--- key concept: multiple Foreign Keys, ON DELETE/ ON UPDATE rules
 
 
 CREATE TABLE employees (
@@ -73,7 +78,10 @@ CREATE TABLE employees (
 ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 ;
 
+-- -----------------------------------------------------------------------------------------
 
+-- create table named projects(Core table) References to departments
+-- key concept: conditional CHECK on dates and budget contraint
 
 CREATE TABLE projects (
 	project_id INT AUTO_INCREMENT,
@@ -107,6 +115,14 @@ CONSTRAINT fk_project_department
 )
 ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- -----------------------------------------------------------------------------------------
+
+-- create table named emp_projects(Core table) References to departments
+-- key concept: Both primary key and foreign key, ON DELETE CASCADE
+-- Junction table resolving the many-to-many relationship between employees and projects.
+-- A composite UNIQUE constraint prevents duplicate assignments.
+-- Both FK's use ON DELETE CASCADE.
+
 CREATE TABLE emp_projects (
     id INT NOT NULL AUTO_INCREMENT,
     emp_id INT NOT NULL,
@@ -133,6 +149,8 @@ CREATE TABLE emp_projects (
 ) 
 ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- -----------------------------------------------------------------------------------------
+
 CREATE TABLE attendance (
     id INT NOT NULL AUTO_INCREMENT,
     emp_id INT NOT NULL,
@@ -155,6 +173,8 @@ CREATE TABLE attendance (
     CONSTRAINT chk_attendance_hours
         CHECK (hours >= 0.00 AND hours <= 24.00)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- -----------------------------------------------------------------------------------------
 
 CREATE TABLE salary_audit (
     id INT NOT NULL AUTO_INCREMENT,
