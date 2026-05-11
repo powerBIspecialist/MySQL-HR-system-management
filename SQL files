@@ -18,7 +18,7 @@ USE hr_system;
 departments - Bussines units with budget(Root table)
 
 CREATE TABLE departments (
-    dept_id INT NOT NULL,
+    dept_id INT NOT NULL AUTO_INCREMENT,
     name VARCHAR(100) NOT NULL,
     location VARCHAR(100) NOT NULL,
     budget DECIMAL(12, 2) NOT NULL DEFAULT 0.00,
