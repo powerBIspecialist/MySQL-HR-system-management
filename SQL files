@@ -1,6 +1,6 @@
 Includes CREATE TABLE statements, foreign keys, indexes, procedures and seed data.
 
-MySQL
+MySQL HR system
 
 01. Create tables
 
@@ -17,6 +17,10 @@ MySQL
 07. Indexes Explain
 
 08. backup
+
+python
+
+01. app.py
 
 
 
