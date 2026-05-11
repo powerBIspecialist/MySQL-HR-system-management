@@ -1,3 +1,10 @@
+-- INSERT (single row + multiple rows)
+-- UPDATE with WHERE
+-- DELETE WITH WHERE
+-- INSERT ON DUPLICATE KEY UPDATE
+-- TRANSACTIONS: START TRANSACTION, COMMIT, ROLLBACK
+
+
 INSERT INTO departments (name, location, budget, active)
 VALUES
 ('Human Resources', 'Brasov', 50000.00, 'active'),
