@@ -5,9 +5,32 @@ MySQL HR system
 00. Create database
 
 CREATE DATABASE hr_system;
+-- It tells to MySQL to create a new place where tables and data will be stored.
+
 USE hr_system;
+-- It selects the database you want to work with.
+-- After this command, all tables you create will be added to this database.
 
 01. Create tables
+
+
+
+CREATE TABLE departments (
+    dept_id INT NOT NULL,
+    name VARCHAR(100) NOT NULL,
+    location VARCHAR(100) NOT NULL,
+    budget DECIMAL(12, 2) NOT NULL DEFAULT 0.00,
+    created_date DATE NOT NULL DEFAULT (CURRENT_DATE),
+    active TINYINT(1) NOT NULL DEFAULT 1,
+
+    CONSTRAINT pk_departments PRIMARY KEY (dept_id),
+    CONSTRAINT uq_dept_name UNIQUE (name),
+    CONSTRAINT chk_dept_budget CHECK (budget >= 0)
+);
+
+
+
+
 
 
 --CREATE TABLE
