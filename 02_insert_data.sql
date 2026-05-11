@@ -56,14 +56,15 @@ VALUES
 ('Mobile App', 'Company mobile app development', '2025-02-01', NULL, 'ACTIVE', 120000, 2),
 ('Payroll Automation', 'Automate salary processing', '2025-03-01', NULL, 'ACTIVE', 80000, 3),
 ('Website Redesign', 'New corporate website', '2025-01-15', '2025-06-01', 'ACTIVE', 60000, 2)
+AS new_values
 
 ON DUPLICATE KEY UPDATE
-description = VALUES(description),
-start_date = VALUES(start_date),
-end_date = VALUES(end_date),
-status = VALUES(status),
-budget = VALUES(budget),
-dept_id = VALUES(dept_id);
+description = new_values.description,
+start_date = new_values.start_date,
+end_date = new_values.end_date,
+status = new_values.status,
+budget = new_values.budget,
+dept_id = new_values.dept_id;
 
 
 
