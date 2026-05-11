@@ -1,7 +1,3 @@
-CREATE DATABASE hr_system;
-
-USE hr_system;
-
 CREATE TABLE departments (
     dept_id INT NOT NULL AUTO_INCREMENT,
     name VARCHAR(100) NOT NULL,
