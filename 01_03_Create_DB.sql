@@ -11,10 +11,6 @@ USE hr_system;
 
 SHOW DATABASES;
 
-
-
-
-
 USE hr_system;
 
 
