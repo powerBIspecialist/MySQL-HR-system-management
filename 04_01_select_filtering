@@ -1,3 +1,9 @@
+-- SELECT *, specific column, aliases
+-- WHERE: AND, OR, NOT, IN, BETWEEN, LIKE
+-- ORDER BY, LIMIT, OFFSET, DISTINCT
+-- IS NULL / IS NOT NULL
+-- CASE WHEN
+
 
 SELECT *
   FROM employees;
