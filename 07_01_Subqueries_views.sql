@@ -1,0 +1,5 @@
+-- Subquery in WHERE (scalar)
+-- Subquerry in FROM (derrived table)
+-- EXISTS / NOT EXISTS, IN with subquerries
+-- CREATE view
+-- WITH CTE (common Table Expression)
