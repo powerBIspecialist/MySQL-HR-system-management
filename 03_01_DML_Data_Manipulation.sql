@@ -1,8 +1,11 @@
 -- INSERT (single row + multiple rows)
 
 INSERT INTO departments (name, location, budget, active)
-VALUES
-('Human Resources', 'Brasov', 50000.00, 'active'),
+  VALUES
+('Human Resources', 'Brasov', 50000.00, 'active');
+
+INSERT INTO departments (name, location, budget, active)
+  VALUES  
 ('IT', 'Bucharest', 250000.00, 'active'),
 ('Finance', 'Cluj-Napoca', 120000.00, 'active'),
 ('Marketing', 'Iasi', 80000.00, 'active'),
@@ -15,7 +18,12 @@ VALUES
 
 INSERT INTO employees
 (first_name, last_name, email, phone, birth_date, salary, job_title, dept_id, manager_id)
-VALUES
+  VALUES
+('Adrian', 'Stanescu', 'adrian.stanescu@company.com', '0711000025', '1991-01-01', 14000, 'Cybersecurity Lead', 10, 1);
+
+INSERT INTO employees
+(first_name, last_name, email, phone, birth_date, salary, job_title, dept_id, manager_id)
+  VALUES
 ('Ciprian', 'Ungureanu', 'ciprian.ungureanu@company.com', '0711000001', '1980-05-12', 22000, 'Chief Executive Officer', 2, NULL),
 ('Mihai', 'Ionescu', 'mihai.ionescu@company.com', '0711000002', '1985-03-22', 16000, 'IT Director', 2, 1),
 ('Roxana', 'Ilie', 'roxana.ilie@company.com', '0711000003', '1988-07-11', 14000, 'Engineering Manager', 2, 2),
@@ -39,13 +47,17 @@ VALUES
 ('Robert', 'Enache', 'robert.enache@company.com', '0711000021', '1995-11-11', 13000, 'Head of Data Science', 8, 1),
 ('Irina', 'Balan', 'irina.balan@company.com', '0711000022', '1998-02-02', 10000, 'Data Scientist', 8, 21),
 ('Daniela', 'Marin', 'daniela.marin@company.com', '0711000023', '1996-03-03', 5500, 'Support Manager', 9, 1),
-('Paul', 'Munteanu', 'paul.munteanu@company.com', '0711000024', '1999-07-07', 4500, 'Support Agent', 9, 23),
-('Adrian', 'Stanescu', 'adrian.stanescu@company.com', '0711000025', '1991-01-01', 14000, 'Cybersecurity Lead', 10, 1);
+('Paul', 'Munteanu', 'paul.munteanu@company.com', '0711000024', '1999-07-07', 4500, 'Support Agent', 9, 23);
 
 
 INSERT INTO projects
 (project_name, description, start_date, end_date, status, budget, dept_id)
 VALUES
+('Website Redesign', 'New corporate website', '2025-01-15', '2025-06-01', 'ACTIVE', 60000, 2);
+
+INSERT INTO projects
+(project_name, description, start_date, end_date, status, budget, dept_id)
+  VALUES
 ('Cloud Migration Platform', 'Migrate infrastructure to cloud (AWS/Azure)', '2025-02-01', NULL, 'ACTIVE', 200000, 2),
 ('Internal ERP System', 'Company-wide ERP development', '2025-01-10', NULL, 'ACTIVE', 250000, 2),
 ('AI Recommendation Engine', 'Machine learning recommendation system', '2025-03-01', NULL, 'ACTIVE', 180000, 8),
@@ -54,11 +66,13 @@ VALUES
 ('Automated Billing System', 'Automate invoicing and billing processes', '2025-01-20', NULL, 'ACTIVE', 140000, 3),
 ('HR System Upgrade', 'Internal HR platform upgrade', '2025-01-01', NULL, 'ACTIVE', 50000, 1),
 ('Mobile App', 'Company mobile app development', '2025-02-01', NULL, 'ACTIVE', 120000, 2),
-('Payroll Automation', 'Automate salary processing', '2025-03-01', NULL, 'ACTIVE', 80000, 3),
-('Website Redesign', 'New corporate website', '2025-01-15', '2025-06-01', 'ACTIVE', 60000, 2);
+('Payroll Automation', 'Automate salary processing', '2025-03-01', NULL, 'ACTIVE', 80000, 3);
 
 
 
+INSERT INTO emp_projects (emp_id, project_id, role, hours_worked, assigned_date)
+  VALUES
+(18, 10, 'Operations Analyst', 75, '2025-01-15');
 
 INSERT INTO emp_projects (emp_id, project_id, role, hours_worked, assigned_date)
 VALUES
@@ -70,18 +84,21 @@ VALUES
 (8, 7, 'HR Specialist', 80, '2025-01-01'),
 (9, 7, 'Recruiter', 70, '2025-01-01'),
 (11, 6, 'Accountant', 90, '2025-01-20'),
-(12, 6, 'Financial Analyst', 95, '2025-01-20'),
-(18, 10, 'Operations Analyst', 75, '2025-01-15');
+(12, 6, 'Financial Analyst', 95, '2025-01-20');
+
 
 INSERT INTO attendance (emp_id, work_date, hours, record_type, notes)
-VALUES
+  VALUES
+(12, '2026-05-05', 8.00, 'work', NULL);
+
+
 (4, '2026-05-05', 8.00, 'work', 'Full day'),
 (5, '2026-05-05', 8.00, 'work', NULL),
 (6, '2026-05-05', 8.00, 'work', NULL),
 (8, '2026-05-05', 8.00, 'work', 'HR work'),
 (9, '2026-05-05', 8.00, 'work', 'Recruiting'),
-(11, '2026-05-05', 8.00, 'work', NULL),
-(12, '2026-05-05', 8.00, 'work', NULL);
+(11, '2026-05-05', 8.00, 'work', NULL);
+
 
 
 -- UPDATE with WHERE
