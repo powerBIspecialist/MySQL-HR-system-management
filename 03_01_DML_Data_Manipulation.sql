@@ -102,6 +102,51 @@ INSERT INTO attendance (emp_id, work_date, hours, record_type, notes)
 
 
 -- UPDATE with WHERE
+
+--Promote employee 4 and increase salary
+UPDATE employees
+SET job_title = 'Senior Backend Developer',
+    salary = 10000
+WHERE id = 4;
 -- DELETE WITH WHERE
+
+-- Delete employee with id 25
+DELETE FROM employees
+WHERE id = 25;
+
 -- INSERT ON DUPLICATE KEY UPDATE
--- TRANSACTIONS: START TRANSACTION, COMMIT, ROLLBACK
+
+
+-- Insert employee, but if id already exists, update salary and email
+
+-- Insert department or update it if it already exists
+INSERT INTO departments (id, name, location, budget, active)
+VALUES (2, 'IT', 'Bucharest', 300000, 'active')
+ON DUPLICATE KEY UPDATE
+budget = 300000,
+location = 'Bucharest';
+
+-- TRANSACTIONS: START TRANSACTION, COMMIT
+
+-- Apply salary increase and department budget increase, then save changes
+START TRANSACTION;
+
+UPDATE employees
+SET salary = salary + 1000
+WHERE dept_id = 2;
+
+UPDATE departments
+SET budget = budget + 50000
+WHERE id = 2;
+
+COMMIT;
+
+--ROLLBACK
+
+--Cancel deletion and restore data
+START TRANSACTION;
+
+DELETE FROM employees
+WHERE dept_id = 2;
+
+ROLLBACK;
