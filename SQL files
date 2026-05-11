@@ -164,6 +164,38 @@ attendance - Daily time tracking per employee
         CHECK (hours >= 0.00 AND hours <= 24.00)
         );
 
+salary audit table - read only adit log
+
+create table salary_audit (
+	id INT NOT NULL AUTO_INCREMENT,
+	emp_id INT NOT NULL,
+    old_salary DECIMAL(10, 2) NOT NULL,
+    new_salary DECIMAL(10, 2) NOT NULL,
+    changed_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    changed_by VARCHAR(100) DEFAULT(USER()),
+    
+		DELIMITER $$
+
+CREATE TRIGGER trg_salary_audit
+BEFORE UPDATE ON employees
+FOR EACH ROW
+BEGIN
+    IF OLD.salary <> NEW.salary THEN
+        INSERT INTO salary_audit (
+            emp_id,
+            old_salary,
+            new_salary
+        )
+        VALUES (
+            OLD.emp_id,
+            OLD.salary,
+            NEW.salary
+        );
+    END IF;
+END$$
+
+DELIMITER ;
+
 
 --CREATE TABLE
 --FOREIGN KEY
