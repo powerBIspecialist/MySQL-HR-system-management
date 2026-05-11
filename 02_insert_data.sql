@@ -58,18 +58,4 @@ VALUES
 ('Website Redesign', 'New corporate website', '2025-01-15', '2025-06-01', 'ACTIVE', 60000, 2);
 
 
-INSERT INTO projects
-(project_name, description, start_date, end_date, status, budget, dept_id)
-VALUES
-('Cloud Migration Platform', 'Migration of core services to AWS infrastructure', '2025-01-15', NULL, 'ACTIVE', 210000, 2),
-('Internal ERP System', 'Unified ERP for finance, HR and operations', '2024-11-01', NULL, 'IN_PROGRESS', 280000, 2),
-('AI Recommendation Engine', 'Machine learning recommendation system for users', '2025-02-10', NULL, 'ACTIVE', 175000, 8),
-('Customer Churn Prediction', 'Predictive model for customer retention analysis', '2025-03-05', NULL, 'ON_HOLD', 110000, 8),
-('Security Monitoring System', 'Real-time threat detection and alert system', '2025-01-20', NULL, 'ACTIVE', 165000, 10),
-('Automated Billing System', 'Automated invoice generation and payment tracking', '2025-01-25', NULL, 'ACTIVE', 135000, 3),
-('Digital Marketing Platform', 'Campaign automation and analytics dashboard', '2025-03-12', NULL, 'ACTIVE', 95000, 4),
-('CRM Optimization Tool', 'Improving sales tracking and customer management', '2025-02-28', NULL, 'IN_PROGRESS', 125000, 5),
-('Logistics Optimization System', 'Optimization of delivery routes and warehouse flow', '2025-01-18', NULL, 'ACTIVE', 145000, 6),
-('Compliance Tracking System', 'Tracking legal compliance and audit readiness', '2025-02-07', NULL, 'ACTIVE', 85000, 7);
-
 
