@@ -15,7 +15,7 @@ USE hr_system;
 
 01. Create tables
 
-departments - Bussines units with budget
+departments - Bussines units with budget(Root table)
 
 CREATE TABLE departments (
     dept_id INT NOT NULL,
@@ -34,7 +34,7 @@ CREATE TABLE departments (
 		CHECK (budget >= 0)
 );
 
-employees - Staff records + manager hierarchy
+employees - Staff records + manager hierarchy(Core table)
 
 CREATE TABLE employees (
     emp_id INT NOT NULL AUTO_INCREMENT,
@@ -111,7 +111,58 @@ CONSTRAINT fk_project_department
         ON UPDATE CASCADE
 );
 
+emp_projects - employee <> project assigments(Junction table)
 
+
+CREATE TABLE emp_projects (
+    id INT NOT NULL AUTO_INCREMENT,
+    emp_id INT NOT NULL,
+    project_id INT NOT NULL,
+    role VARCHAR(100) NOT NULL,
+    hours_worked INT NOT NULL,
+    assigned_date DATE NOT NULL,
+    
+    CONSTRAINT pk_emp_projects 
+		PRIMARY KEY (id),
+
+    CONSTRAINT uq_emp_project 
+        UNIQUE (emp_id, project_id),
+
+    CONSTRAINT fk_emp 
+        FOREIGN KEY (emp_id) 
+        REFERENCES employees(emp_id)
+        ON DELETE CASCADE,
+
+    CONSTRAINT fk_ep_project
+        FOREIGN KEY (project_id)
+        REFERENCES projects(project_id)
+        ON DELETE CASCADE
+	);
+
+attendance - Daily time tracking per employee
+
+   CREATE TABLE attendance (
+    id INT NOT NULL AUTO_INCREMENT,
+    emp_id INT NOT NULL,
+    work_date DATE NOT NULL,
+    hours DECIMAL(4,2) NOT NULL DEFAULT 8.00,
+    record_type VARCHAR(50) NOT NULL,
+    notes VARCHAR(255),
+    
+       CONSTRAINT pk_attendance
+        PRIMARY KEY (id),
+
+    CONSTRAINT fk_attendance_employee
+        FOREIGN KEY (emp_id)
+        REFERENCES employees(emp_id)
+        ON DELETE CASCADE,
+
+    CONSTRAINT uq_attendance_work_date
+        UNIQUE (work_date),
+
+    CONSTRAINT chk_attendance_hours
+        CHECK (hours >= 0.00 AND hours <= 24.00)
+        );
 
 
 --CREATE TABLE
