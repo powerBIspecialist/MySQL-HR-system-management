@@ -1,4 +1,7 @@
-Install MySQL Server on Windows (most common)
+01_01 Basic & Setup
+-- Installing MYSQL Server & Workbench
+
+
 1. Download MySQL Installer
 
 Go to the official page:
