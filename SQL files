@@ -13,7 +13,7 @@ USE hr_system;
 
 01. Create tables
 
-
+departments - Bussines units with budget:
 
 CREATE TABLE departments (
     dept_id INT NOT NULL,
