@@ -2,9 +2,14 @@ Includes CREATE TABLE statements, foreign keys, indexes, procedures and seed dat
 
 MySQL HR system
 
+00. Create database
+
+CREATE DATABASE hr_system;
+USE hr_system;
+
 01. Create tables
 
---CREATE DATABASE
+
 --CREATE TABLE
 --FOREIGN KEY
 --CHECK
