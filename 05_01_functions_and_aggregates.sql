@@ -1,3 +1,11 @@
+-- FUNCTIONS & AGGREGATIONS
+
+-- Aggregations: COUNT, SUM, AVG, MIN, MAX
+-- GROUP BY, HAVING
+-- String functions: CONCAT, LENGTH, UPPER, LOWER, TRIM, SUBSTRING
+-- Date functions, NOW, CURDATE, DATE_FORMAT, DATEFIFF
+-- NULL functions: IFNULL, NULLIF
+
 SELECT COUNT(*) AS total_employees
   FROM employees;
 
