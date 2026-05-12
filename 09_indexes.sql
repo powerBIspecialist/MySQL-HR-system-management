@@ -19,7 +19,7 @@ CREATE INDEX idx_departments_name
 CREATE INDEX idx_employees_dept
   ON employees(dept_id);
 
-  --01.03 Manager hierarchy
+  -- 01.03 Manager hierarchy
   -- Optimizes manager hierarchy queries and self joins
 CREATE INDEX idx_employees_manager
   ON employees(manager_id);
@@ -69,4 +69,6 @@ ON salary_audit(emp_id);
 CREATE INDEX idx_salary_audit_changed
 ON salary_audit(changed_at);
 
-      -- THE END--
+  SHOW CREATE TABLE employees;
+  
+  
