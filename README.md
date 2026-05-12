@@ -58,3 +58,9 @@ Core Features
 - Optimization using indexes
 - Comparison of query performance before and after optimization
 - Improvement of JOIN and filtering operations
+
+Core Features
+Tech stack (SQL dialect)
+Schema overview
+Performance highlights
+Security highlights
