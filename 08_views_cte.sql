@@ -4,7 +4,7 @@
 
 
     -- 01.01 ACTIVE DEPARTMENTS
-    --Retrieves only departments marked as active
+    -- Retrieves only departments marked as active
 WITH active_departments AS (
     SELECT *
     FROM departments
@@ -13,8 +13,8 @@ WITH active_departments AS (
 SELECT *
 FROM active_departments;
 
-    --01.02 DEPARTMENT EMPLOYEE COUNT
-    --Counts the number of employees in each department
+    -- 01.02 DEPARTMENT EMPLOYEE COUNT
+    -- Counts the number of employees in each department
 WITH dept_emp_count AS (
     SELECT 
         dept_id,
@@ -25,7 +25,7 @@ WITH dept_emp_count AS (
 SELECT *
 FROM dept_emp_count;
 
-    --01.03 HIGH SALARY EMPLOYEES
+    -- 01.03 HIGH SALARY EMPLOYEES
     -- Retrieves employees with salary greater than 10,000
 
 WITH high_salary AS (
@@ -60,7 +60,7 @@ WITH active_projects AS (
 SELECT *
 FROM active_projects;
 
-    --01.06 PROJECT BUDGET OVERVIEW
+    -- 01.06 PROJECT BUDGET OVERVIEW
     -- Displays basic budget information for all projects
 WITH project_budget AS (
     SELECT 
@@ -139,5 +139,4 @@ WITH latest_salary AS (
 )
 SELECT *
 FROM latest_salary;
-
 
