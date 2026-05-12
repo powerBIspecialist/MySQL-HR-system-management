@@ -188,25 +188,4 @@ CREATE TABLE salary_audit (
     CONSTRAINT pk_salary_audit
         PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-	
-    
-    DELIMITER $$
-CREATE TRIGGER trg_salary_audit
-BEFORE UPDATE ON employees
-FOR EACH ROW
-BEGIN
-    IF NOT (OLD.salary <=> NEW.salary) THEN
-        INSERT INTO salary_audit (
-            emp_id,
-            old_salary,
-            new_salary
-        )
-        VALUES (
-            OLD.emp_id,
-            OLD.salary,
-            NEW.salary
-        );
-    END IF;
-END$$
 
-DELIMITER ;
