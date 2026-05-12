@@ -23,7 +23,7 @@ CREATE TABLE departments (
     name VARCHAR(100) NOT NULL,
     location VARCHAR(100) NOT NULL,
     budget DECIMAL(12, 2) NOT NULL DEFAULT 0.00,
-    created_date DATE DEFAULT CURRENT_DATE,
+    created_date DATE NOT NULL DEFAULT (CURRENT_DATE),
     active ENUM('active', 'inactive') NOT NULL DEFAULT 'active',
 
 	-- 1st constraint as primary key for dept_id row
@@ -43,28 +43,46 @@ ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 -- -----------------------------------------------------------------------------------------
 	-- 02.02 Staff records and manager hierarchy
 CREATE TABLE employees (
-    emp_id INT AUTO_INCREMENT PRIMARY KEY,
-    first_name VARCHAR(80) NOT NULL,
+    emp_id INT NOT NULL AUTO_INCREMENT,
+	first_name VARCHAR(80) NOT NULL,
     last_name VARCHAR(80) NOT NULL,
-    email VARCHAR(150) NOT NULL UNIQUE,
-    phone VARCHAR(20),
-    birth_date DATE,
-    hire_date DATE DEFAULT CURRENT_DATE,
-    salary DECIMAL(10,2) NOT NULL,
+   	email VARCHAR(150) NOT NULL,
+    phone VARCHAR(20) NULL,
+    birth_date DATE NULL,
+    hire_date DATE NOT NULL DEFAULT (CURRENT_DATE),
+    salary DECIMAL(10, 2) NOT NULL,
     job_title VARCHAR(100) NOT NULL,
     dept_id INT NOT NULL,
     manager_id INT NULL,
-    active ENUM('ACTIVE','INACTIVE') DEFAULT 'ACTIVE',
+    active ENUM('active', 'inactive') NOT NULL DEFAULT 'active',
 
-    FOREIGN KEY (dept_id) REFERENCES departments(dept_id)
-        ON DELETE RESTRICT ON UPDATE CASCADE,
-
-    FOREIGN KEY (manager_id) REFERENCES employees(emp_id)
-        ON DELETE SET NULL ON UPDATE CASCADE,
-
-    CHECK (salary > 0),
-    CHECK (birth_date IS NULL OR birth_date < hire_date)
-) ENGINE=InnoDB;
+    CONSTRAINT pk_employees 
+		PRIMARY KEY (emp_id),
+        
+	CONSTRAINT uq_emp_email 
+		UNIQUE (email),
+        
+	CONSTRAINT fk_emp_dept
+        FOREIGN KEY (dept_id)
+        REFERENCES departments(dept_id)
+        ON DELETE RESTRICT
+        ON UPDATE CASCADE,
+        
+	CONSTRAINT fk_manager
+        FOREIGN KEY (manager_id)
+        REFERENCES employees(emp_id)
+        ON DELETE SET NULL
+        ON UPDATE CASCADE,
+        
+	CONSTRAINT chk_salary
+        CHECK (salary > 0),
+        
+	CONSTRAINT chk_emp_dates
+        CHECK (birth_date IS NULL
+            OR birth_date < hire_date
+        ))
+ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+;
 
 -- -----------------------------------------------------------------------------------------
 	-- 02.03 Company projects per department
