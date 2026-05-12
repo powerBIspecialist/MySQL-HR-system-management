@@ -127,11 +127,12 @@ WHERE emp_id = 25;
   -- 06.03 INSERT ON DUPLICATE KEY UPDATE
   -- This query inserts a new department into the departments table.
   -- If a record with the same id already exists, it updates the existing row instead of generating an error.
-INSERT INTO departments (name, location, budget, active)
-VALUES ('IT', 'Bucharest', 300000, 'active')
+INSERT INTO departments (dept_id, name, location, budget, active)
+VALUES (2, 'IT', 'Bucharest', 300000, 'active')
 ON DUPLICATE KEY UPDATE
 budget = VALUES(budget),
-location = VALUES(location);
+location = VALUES(location),
+active = VALUES(active);
 
   -- 06.04 TRANSACTIONS: START TRANSACTION, COMMIT
   -- Apply salary increase and department budget increase, then save changes
@@ -143,7 +144,7 @@ WHERE dept_id = 2;
 
 UPDATE departments
 SET budget = budget + 50000
-WHERE id = 2;
+WHERE dept_id = 2;
 
 COMMIT;
 
@@ -158,6 +159,6 @@ WHERE dept_id = 2;
 ROLLBACK;
 
 
--- END OF SEEL DATA MODULE
+-- END OF SEEd DATA MODULE
 -- Total tables populated with data: 5
 -- Covers: CREATE\DROP DATABASE, USE, SHOW, SET 
