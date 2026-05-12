@@ -16,7 +16,7 @@ CREATE INDEX idx_departments_name
 
   -- 01.02 Employees Indexes
   -- Improves filtering and joins by department
-CREATE INDEX idx_employees_dept
+CREATE INDEX idx_employees_dept_id
   ON employees(dept_id);
 
   -- 01.03 Manager hierarchy
