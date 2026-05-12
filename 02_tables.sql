@@ -17,7 +17,7 @@
 
 -- -----------------------------------------------------------------------------------------
 
-	--  Bussines units with budget
+	-- 02.01 Bussines units with budget
 CREATE TABLE departments (
     dept_id INT NOT NULL AUTO_INCREMENT,
     name VARCHAR(100) NOT NULL,
@@ -41,7 +41,7 @@ ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 ;
 
 -- -----------------------------------------------------------------------------------------
-	-- Staff records and manager hierarchy
+	-- 02.02 Staff records and manager hierarchy
 CREATE TABLE employees (
     emp_id INT NOT NULL AUTO_INCREMENT,
 	first_name VARCHAR(80) NOT NULL,
@@ -85,7 +85,7 @@ ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 ;
 
 -- -----------------------------------------------------------------------------------------
-	-- Company projects per department
+	-- 02.03 Company projects per department
 CREATE TABLE projects (
 	project_id INT AUTO_INCREMENT,
 	project_name VARCHAR(150) NOT NULL,
@@ -119,7 +119,7 @@ CONSTRAINT fk_project_department
 ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- -----------------------------------------------------------------------------------------
-	-- Employee <> project assignments
+	-- 02.04 Employee <> project assignments
 CREATE TABLE emp_projects (
     id INT NOT NULL AUTO_INCREMENT,
     emp_id INT NOT NULL,
@@ -147,7 +147,7 @@ CREATE TABLE emp_projects (
 ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- -----------------------------------------------------------------------------------------
-	-- Daily time tracking per employee
+	-- 02.05 Daily time tracking per employee
 CREATE TABLE attendance (
     id INT NOT NULL AUTO_INCREMENT,
     emp_id INT NOT NULL,
@@ -172,7 +172,7 @@ CREATE TABLE attendance (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- -----------------------------------------------------------------------------------------
-	-- Auto-log of every salary change
+	-- 02.06 Auto-log of every salary change
 CREATE TABLE salary_audit (
     id INT NOT NULL AUTO_INCREMENT,
     emp_id INT NOT NULL,
@@ -189,3 +189,6 @@ CREATE TABLE salary_audit (
         PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- END OF TABLES MODULE
+-- Total Tables: 6
+-- Covers: CREATE\DROP DATABASE, USE, SHOW, SET 
