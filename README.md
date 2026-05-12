@@ -35,3 +35,10 @@ Core Features
 - Trigger and stored procedure implementation for automation
 - Performance analysis and query optimization techniques
 - Documentation of database relationships and structure
+
+-  Performance & Indexing
+
+- Implementation of database indexes to optimize query execution
+- Improvement of search and join operations using indexed columns
+- Performance analysis using query execution plans
+- Comparison of query performance before and after indexing
