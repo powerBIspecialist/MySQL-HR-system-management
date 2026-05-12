@@ -252,8 +252,18 @@ WITH high_salary_employees AS (
 SELECT *
 FROM high_salary_employees;
 
-
-
-   -- THE END--
+SHOW TABLES;
+SELECT * FROM vw_active_departments;
+SELECT * FROM vv_active_projects;
+SELECT * FROM vw_attendance_details;
+SELECT * FROM vw_atendance_summary;
+SELECT * FROM vw_employee_profile;
+SELECT * FROM vw_employee_profile;
+SELECT * FROM vw_employees_with_manager;
+SELECT * FROM vw_latest_salary_changes;
+SELECT * FROM vw_project_workload;
+SELECT * FROM vw_projects_with_department;
+SELECT * FROM vw_salary_audit_history;
+ 
 
 
