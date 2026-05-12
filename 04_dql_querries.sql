@@ -44,7 +44,7 @@ SELECT
     name,
     active
 FROM departments
-WHERE NOT active = 'inactive';
+WHERE active = 'active';
 
   -- 01.06. BETWEEN
   -- Returns employees whose salary is between 7000 and 12000 (inclusive)
