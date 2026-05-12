@@ -1,0 +1,3 @@
+  -- The tables script contains only the core schema definitions (DDL),
+  -- separating structure from relationships, data, and business logic.
+  -- This improves maintainability and follows best practices for database modularization
