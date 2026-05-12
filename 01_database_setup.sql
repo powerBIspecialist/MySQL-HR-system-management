@@ -20,7 +20,7 @@ USE hr_system;
 SHOW DATABASES;
 
 SET SQL_SAFE_UPDATES = 0;
-
+SET time_zone = '+00:00';
 SET default_storage_engine = InnoDB;
 
 
