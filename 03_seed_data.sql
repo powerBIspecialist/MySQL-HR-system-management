@@ -117,12 +117,12 @@ INSERT INTO attendance (emp_id, work_date, hours, record_type, notes)
 UPDATE employees
 SET job_title = 'Senior Backend Developer',
     salary = 10000
-WHERE id = 4;
+WHERE emp_id = 4;
 
   -- 06.02 DELETE WITH WHERE
   -- Delete employee with id 25
 DELETE FROM employees
-WHERE id = 25;
+WHERE emp_id = 25;
 
   -- 06.03 INSERT ON DUPLICATE KEY UPDATE
   -- This query inserts a new department into the departments table.
