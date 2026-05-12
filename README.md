@@ -42,3 +42,11 @@ Core Features
 - Improvement of search and join operations using indexed columns
 - Performance analysis using query execution plans
 - Comparison of query performance before and after indexing
+
+- ## Programmability & Security
+
+- Implementation of stored procedures and user-defined functions
+- Automation of database operations using triggers
+- Role-based access control and user permissions
+- Data security through restricted access to sensitive tables
+- Encapsulation of business logic inside the database layer
