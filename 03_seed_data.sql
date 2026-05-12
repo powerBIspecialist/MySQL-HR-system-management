@@ -113,7 +113,7 @@ INSERT INTO attendance (emp_id, work_date, hours, record_type, notes)
 (11, '2026-05-05', 8.00, 'work', NULL);
 
     -- 06.01 UPDATE with WHERE
-  --Promote employee 4 and increase salary
+  -- Promote employee 4 and increase salary
 UPDATE employees
 SET job_title = 'Senior Backend Developer',
     salary = 10000
@@ -128,11 +128,11 @@ WHERE emp_id = 25;
   -- This query inserts a new department into the departments table.
   -- If a record with the same id already exists, it updates the existing row instead of generating an error.
 INSERT INTO departments (dept_id, name, location, budget, active)
-VALUES (2, 'IT', 'Bucharest', 300000, 'active')
+VALUES (2, 'IT', 'Bucharest', 300000, 'active') AS new_data
 ON DUPLICATE KEY UPDATE
-budget = VALUES(budget),
-location = VALUES(location),
-active = VALUES(active);
+budget = new_data.budget,
+location = new_data.location,
+active = new_data.active;
 
   -- 06.04 TRANSACTIONS: START TRANSACTION, COMMIT
   -- Apply salary increase and department budget increase, then save changes
@@ -149,7 +149,7 @@ WHERE dept_id = 2;
 COMMIT;
 
   -- 06.05ROLLBACK
-  --Cancel deletion and restore data
+  -- Cancel deletion and restore data
 START TRANSACTION;
 
 DELETE FROM employees
