@@ -113,7 +113,7 @@ INSERT INTO attendance (emp_id, work_date, hours, record_type, notes)
 (11, '2026-05-05', 8.00, 'work', NULL);
 
     -- 06.01 UPDATE with WHERE
-  -- Promote employee 4 and increase salary
+    -- Promote employee 4 and increase salary
 UPDATE employees
 SET job_title = 'Senior Backend Developer',
     salary = 10000
