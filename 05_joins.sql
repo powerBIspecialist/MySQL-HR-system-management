@@ -1,3 +1,6 @@
+         -- Joins and reports
+         -- PURPOSE: relational queries, reporting, analytics
+
 
         -- INNER JOIN
         -- LEFT JOIN / RIGHT JOIN
@@ -28,7 +31,7 @@ FROM departments d
 LEFT JOIN employees e
     ON d.dept_id = e.dept_id;
 
-  -- 01.02 RIGHT JOIN
+  -- 01.03 RIGHT JOIN
   -- Returns all rows from the right table and matching rows from the left table
 SELECT 
     e.first_name,
@@ -38,7 +41,7 @@ FROM employees e
 RIGHT JOIN departments d
     ON e.dept_id = d.dept_id;
 
-  -- 01.03 JOIN Across 3 Tables
+  -- 01.04 JOIN Across 3 Tables
   -- Combines data from three related tables
 SELECT 
     e.first_name,
@@ -46,12 +49,11 @@ SELECT
     p.project_name,
     d.name AS department_name
 FROM employees e
-INNER JOIN departments d
-    ON e.dept_id = d.dept_id
-INNER JOIN projects p
-    ON d.dept_id = p.dept_id;
+JOIN emp_projects ep ON e.emp_id = ep.emp_id
+JOIN projects p ON ep.project_id = p.project_id
+JOIN departments d ON e.dept_id = d.dept_id;
 
-  -- 01.04 SELF JOIN
+  -- 01.05 SELF JOIN
   -- Joins a table with itself.
   SELECT 
     e.first_name AS employee_name,
@@ -60,7 +62,7 @@ FROM employees e
 LEFT JOIN employees m
     ON e.manager_id = m.emp_id;
 
-  -- 01.05 CROSS JOIN
+  -- 01.06 CROSS JOIN
   -- Returns all possible combinations between two tables.
 SELECT 
     e.first_name,
@@ -68,7 +70,7 @@ SELECT
 FROM employees e
 CROSS JOIN departments d;
 
-  -- 01.06 JOIN + WHERE + GROUP BY + ORDER BY
+  -- 01.07 JOIN + WHERE + GROUP BY + ORDER BY
   -- Combines multiple SQL clauses in one query
 SELECT 
     d.name AS department_name,
@@ -77,7 +79,7 @@ SELECT
 FROM departments d
 INNER JOIN employees e
     ON d.dept_id = e.dept_id
-WHERE e.active = 'active'
+WHERE d.active = 'active'
 GROUP BY d.name
 ORDER BY average_salary DESC;
 
