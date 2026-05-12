@@ -1,5 +1,10 @@
-  -- STORED PROCEDURES & TRIGGERS (BUSINESS LOGIC LAYER)
--- =========================================================
+-- STORED PROCEDURES & TRIGGERS (BUSINESS LOGIC LAYER)
+--
+-- HR SYSTEM - DATABASE PROGRAMMABILITY LAYER
+-- Includes triggers and stored procedures for:
+-- - salary audit tracking
+-- - employee management
+-- - department queries
 -- This module contains database-level business logic:
 -- - Triggers for automatic auditing
 -- - Stored procedures for reusable operations
