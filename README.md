@@ -35,7 +35,7 @@ Security:
 - Audit logs for salary changes
 - Controlled relational access
 How to Run:
-1. CREATE DATABASE company_db;
+1. CREATE DATABASE hr_system;
 2. Run tables.sql
 3. Run seed_data.sql
 4. Run procedures/functions/triggers
