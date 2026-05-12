@@ -1,3 +1,5 @@
+        -- Triggers and stored procedures are grouped in a dedicated script to separate business logic from query and schema layers,
+        -- following clean database architecture principles
 
 DELIMITER $$
 
