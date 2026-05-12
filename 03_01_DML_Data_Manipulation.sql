@@ -1,9 +1,12 @@
--- INSERT (single row + multiple rows)
+    -- INSERT seed data (single row + multiple rows)
 
+
+  -- 01.01 INSERT seed data in single row
 INSERT INTO departments (name, location, budget, active)
   VALUES
 ('Human Resources', 'Brasov', 50000.00, 'active');
 
+  -- 01.02 INSERT seed data in  multiple rows
 INSERT INTO departments (name, location, budget, active)
   VALUES  
 ('IT', 'Bucharest', 250000.00, 'active'),
@@ -16,11 +19,14 @@ INSERT INTO departments (name, location, budget, active)
 ('Customer Support', 'Remote', 90000.00, 'active'),
 ('Cybersecurity', 'Cluj-Napoca', 180000.00, 'active');
 
+
+  -- 02.01 INSERT seed data in single row
 INSERT INTO employees
 (first_name, last_name, email, phone, birth_date, salary, job_title, dept_id, manager_id)
   VALUES
 ('Adrian', 'Stanescu', 'adrian.stanescu@company.com', '0711000025', '1991-01-01', 14000, 'Cybersecurity Lead', 10, 1);
 
+  -- 02.02 INSERT seed data in  multiple rows
 INSERT INTO employees
 (first_name, last_name, email, phone, birth_date, salary, job_title, dept_id, manager_id)
   VALUES
@@ -50,11 +56,13 @@ INSERT INTO employees
 ('Paul', 'Munteanu', 'paul.munteanu@company.com', '0711000024', '1999-07-07', 4500, 'Support Agent', 9, 23);
 
 
+  -- 03.01 INSERT seed data in single row
 INSERT INTO projects
 (project_name, description, start_date, end_date, status, budget, dept_id)
 VALUES
 ('Website Redesign', 'New corporate website', '2025-01-15', '2025-06-01', 'ACTIVE', 60000, 2);
 
+  -- 03.02 INSERT seed data in  multiple rows
 INSERT INTO projects
 (project_name, description, start_date, end_date, status, budget, dept_id)
   VALUES
@@ -68,12 +76,12 @@ INSERT INTO projects
 ('Mobile App', 'Company mobile app development', '2025-02-01', NULL, 'ACTIVE', 120000, 2),
 ('Payroll Automation', 'Automate salary processing', '2025-03-01', NULL, 'ACTIVE', 80000, 3);
 
-
-
+  -- 04.01 INSERT seed data in single row
 INSERT INTO emp_projects (emp_id, project_id, role, hours_worked, assigned_date)
   VALUES
 (18, 10, 'Operations Analyst', 75, '2025-01-15');
 
+  -- 04.02 INSERT seed data in  multiple rows
 INSERT INTO emp_projects (emp_id, project_id, role, hours_worked, assigned_date)
 VALUES
 (4, 1, 'Backend Developer', 120, '2025-02-01'),
@@ -86,12 +94,14 @@ VALUES
 (11, 6, 'Accountant', 90, '2025-01-20'),
 (12, 6, 'Financial Analyst', 95, '2025-01-20');
 
-
+  -- 05.01 INSERT seed data in single row
 INSERT INTO attendance (emp_id, work_date, hours, record_type, notes)
   VALUES
 (12, '2026-05-05', 8.00, 'work', NULL);
 
-
+  -- 05.02 INSERT seed data in  multiple rows
+INSERT INTO attendance (emp_id, work_date, hours, record_type, notes)
+  VALUES
 (4, '2026-05-05', 8.00, 'work', 'Full day'),
 (5, '2026-05-05', 8.00, 'work', NULL),
 (6, '2026-05-05', 8.00, 'work', NULL),
@@ -100,35 +110,29 @@ INSERT INTO attendance (emp_id, work_date, hours, record_type, notes)
 (11, '2026-05-05', 8.00, 'work', NULL);
 
 
-
--- UPDATE with WHERE
-
---Promote employee 4 and increase salary
+  -- 06.01 UPDATE with WHERE
+  --Promote employee 4 and increase salary
 UPDATE employees
 SET job_title = 'Senior Backend Developer',
     salary = 10000
 WHERE id = 4;
--- DELETE WITH WHERE
 
--- Delete employee with id 25
+  -- 06.02 DELETE WITH WHERE
+  -- Delete employee with id 25
 DELETE FROM employees
 WHERE id = 25;
 
--- INSERT ON DUPLICATE KEY UPDATE
-
-
--- Insert employee, but if id already exists, update salary and email
-
--- Insert department or update it if it already exists
+  -- 06.03 INSERT ON DUPLICATE KEY UPDATE
+  -- This query inserts a new department into the departments table.
+  -- If a record with the same id already exists, it updates the existing row instead of generating an error.
 INSERT INTO departments (id, name, location, budget, active)
 VALUES (2, 'IT', 'Bucharest', 300000, 'active')
 ON DUPLICATE KEY UPDATE
 budget = 300000,
 location = 'Bucharest';
 
--- TRANSACTIONS: START TRANSACTION, COMMIT
-
--- Apply salary increase and department budget increase, then save changes
+  -- 06.04 TRANSACTIONS: START TRANSACTION, COMMIT
+  -- Apply salary increase and department budget increase, then save changes
 START TRANSACTION;
 
 UPDATE employees
@@ -141,12 +145,12 @@ WHERE id = 2;
 
 COMMIT;
 
---ROLLBACK
-
---Cancel deletion and restore data
+  -- 06.05ROLLBACK
+  --Cancel deletion and restore data
 START TRANSACTION;
 
 DELETE FROM employees
 WHERE dept_id = 2;
 
+  -- 06.06 If an error occurs before COMMIT, the transaction can be canceled using
 ROLLBACK;
