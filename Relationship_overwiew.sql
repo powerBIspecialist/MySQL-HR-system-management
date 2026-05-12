@@ -1,13 +1,35 @@
-Relationships Overview:
+-- DATABASE RELATIONSHIPS OVERVIEW
+-- This section describes relationships and referential
+-- integrity rules between all tables in the HR system.
 
-departments -> employees : RESTRICT - the department cannot be deleted if it has employees.
+-- Departments → Employees
+-- Relationship: 1 to many
+-- Rule: RESTRICT
+-- A department cannot be deleted if it has employees
+-- to preserve data integrity.
 
-departments -> projects : RESTRICT - the department cannot be deleted if it has projects.
+-- Departments → Projects
+-- Relationship: 1 to many
+-- Rule: RESTRICT
+-- A department cannot be deleted if it has projects assigned.
 
-employees -> employees : SET NULL - SELF JOIN - manager_id points to the same table.
+-- Employees → Employees (Self-Join)
+-- Relationship: hierarchical (manager structure)
+-- Rule: SET NULL
+-- If a manager is deleted, employees keep their record
+-- but manager_id becomes NULL.
 
-employees -> emp_projects : CASCADE - Pivot table dissolves many-to-many relationship.
+-- Employees → Emp_Projects
+-- Relationship: many-to-many (junction table)
+-- Rule: CASCADE
+-- Deleting an employee removes all project assignments.
 
-projects -> emp_ projects : CASCADE - Removing a profect removes all its assignmens.
+-- Projects → Emp_Projects
+-- Relationship: many-to-many (junction table)
+-- Rule: CASCADE
+-- Deleting a project removes all employee assignments.
 
-employees -> attendance : CASCADE - Time logs deleted when employee record is removed.
+-- Employees → Attendance
+-- Relationship: 1 to many
+-- Rule: CASCADE
+-- If an employee is deleted, all attendance records are removed.
