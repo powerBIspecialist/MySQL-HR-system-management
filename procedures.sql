@@ -37,7 +37,7 @@ END$$
 
 DELIMITER ;
 
-    --  01.02 - STORED PROCEDURE
+    --  02.01 - STORED PROCEDURE
     -- PROCEDURE 1 - Add Employee
     -- Used to insert new employees into the system.
 
@@ -72,7 +72,7 @@ END$$
 
 DELIMITER ;
 
-  -- 01.03 PROCEDURE 2 - Update Employee Salary
+  -- 02.02 PROCEDURE 2 - Update Employee Salary
   -- Updates employee salary.
   --  The salary audit trigger will automatically log the change
 DELIMITER $$
@@ -89,7 +89,7 @@ END$$
 
 DELIMITER ;
 
-  -- 01.04 PROCEDURE 3 – Employees by Department
+  -- 02.03 PROCEDURE 3 – Employees by Department
   -- Returns all employees from a specific department
 DELIMITER $$
 
