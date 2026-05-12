@@ -1,4 +1,4 @@
- =========================================================
+
     -- 08 - VIEWS & CTE (Common Table Expressions)
     -- Purpose: Advanced queries using CTEs and analytical views
 
