@@ -1,4 +1,4 @@
-    -- The database setup file initializes the environment by creating and selecting the database.
+    -- This database setup file for the environment by creating and selecting the database.
     -- Database Operations: CREATE\DROP DATABASE, USE, SHOW, SET
 
 -- 01.01 Create a database named mydb
