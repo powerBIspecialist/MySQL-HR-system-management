@@ -50,3 +50,11 @@ Core Features
 - Role-based access control and user permissions
 - Data security through restricted access to sensitive tables
 - Encapsulation of business logic inside the database layer
+
+- ## Performance Analysis
+
+- Query execution analysis using EXPLAIN plans
+- Identification of inefficient queries
+- Optimization using indexes
+- Comparison of query performance before and after optimization
+- Improvement of JOIN and filtering operations
