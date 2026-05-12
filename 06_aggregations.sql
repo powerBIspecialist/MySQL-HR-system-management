@@ -134,8 +134,8 @@ FROM employees;
   -- This query provides a full HR financial overview per department, showing:
   -- team size
   -- salary distribution
-  --total payroll cost
-  --salary range
+  -- total payroll cost
+  -- salary range
 SELECT 
     dept_id,
     COUNT(*) AS total_employees,
@@ -162,4 +162,3 @@ HAVING AVG(salary) > 9000
 ORDER BY average_salary DESC;
 
 
-            -- THE END--
