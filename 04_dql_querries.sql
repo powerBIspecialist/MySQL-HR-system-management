@@ -1,1 +1,13 @@
+  -- The DQL layer contains only SELECT queries used for reporting, filtering, sorting and data analysis. It is strictly separated
+  -- from DDL and DML operations to ensure clean architecture and query clarity.
 
+-- BASIC SELECTS
+-- FILTERS (WHERE)
+-- LOGICAL OPERATORS
+-- PATTERNS (LIKE)
+-- NULL HANDLING
+-- SORTING
+-- PAGINATION
+-- CASE LOGIC
+-- JOINS
+-- REPORT QUERIES
