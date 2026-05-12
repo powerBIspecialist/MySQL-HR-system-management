@@ -110,20 +110,26 @@ END$$
 DELIMITER ;
 
 
+DELIMITER $$
+
 CREATE PROCEDURE GetHighSalaryEmployees()
-AS
 BEGIN
     SELECT *
     FROM employees
     WHERE salary > 10000;
-END;
+END $$
+
+DELIMITER ;
 
 
 
+
+DELIMITER $$
 
 CREATE FUNCTION GetTotalEmployees()
 RETURNS INT
-AS
+DETERMINISTIC
+READS SQL DATA
 BEGIN
     DECLARE total INT;
 
@@ -131,15 +137,19 @@ BEGIN
     FROM employees;
 
     RETURN total;
-END;
+END $$
 
+DELIMITER ;
+
+
+DELIMITER $$
 
 CREATE TRIGGER trg_after_employee_insert
 AFTER INSERT ON employees
 FOR EACH ROW
 BEGIN
-    INSERT INTO audit_log(message)
-    VALUES ('New employee added');
-END;
+    INSERT INTO salary_audit (emp_id, old_salary, new_salary)
+    VALUES (NEW.emp_id, 0, NEW.salary);
+END $$
 
-
+DELIMITER ;
