@@ -9,8 +9,8 @@
         -- JOIN + WHERE + GROUP BY + ORDER BY
 
 
-    --01.01 INNER JOIN
-    --Returns only the rows that have matching values in both tables
+    -- 01.01 INNER JOIN
+    -- Returns only the rows that have matching values in both tables
 SELECT 
     e.emp_id,
     e.first_name,
@@ -84,5 +84,4 @@ GROUP BY d.name
 ORDER BY average_salary DESC;
 
 
-            -- THE END--
-
+            
