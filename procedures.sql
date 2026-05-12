@@ -15,6 +15,8 @@
         -- the old salary is stored
         -- the new salary is stored
         -- the change timestamp is recorded inside the salary_audit table.
+
+DELIMITER $$
 CREATE TRIGGER trg_salary_audit
 BEFORE UPDATE ON employees
 FOR EACH ROW
