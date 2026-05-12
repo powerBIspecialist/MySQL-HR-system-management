@@ -18,3 +18,7 @@ USE hr_system;
 
 -- Show all databases available on the server
 SHOW DATABASES;
+
+SET SQL_SAFE_UPDATES = 0;
+
+SET default_storage_engine = InnoDB;
