@@ -1,13 +1,11 @@
 
-        -- ADVANCED SQL FEATURES – VIEWS, SUBQUERIES & CTEs
-        -- This section demonstrates advanced SQL concepts used for reporting,
-        -- reusable queries, data abstraction, and analytical processing in the HR System database.
-
--- Subquery in WHERE (scalar)
--- Subquerry in FROM (derrived table)
--- EXISTS / NOT EXISTS, IN with subquerries
--- CREATE view
--- WITH CTE (common Table Expression)
+-- This module demonstrates advanced SQL techniques used for:
+-- - complex filtering (subqueries)
+-- - reusable reporting structures (views)
+-- - temporary analytical datasets (CTEs)
+--
+-- These features are essential for:
+-- reporting systems, data analytics, and backend optimization.
 
     -- 01.01 Subquery in WHERE (Scalar Subquery)
     -- A subquery that returns a single value and is used inside the WHERE clause for filtering
