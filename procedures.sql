@@ -1,10 +1,14 @@
-          -- STORED PROCEDURES & DATABASE LOGIC USED
+  -- STORED PROCEDURES & TRIGGERS (BUSINESS LOGIC LAYER)
+-- =========================================================
+-- This module contains database-level business logic:
+-- - Triggers for automatic auditing
+-- - Stored procedures for reusable operations
 
     -- The project currently uses a BEFORE UPDATE trigger for salary auditing.
     -- Additional stored procedures can be added for reusable business operations
     -- such as employee insertion, salary updates, and department-based reporting.
 
-  -- 01.01 - 1. TRIGGER
+  -- 01.01 - TRIGGER
   --The trigger executes automatically before an UPDATE operation on the employees table.
   -- It checks whether the employee salary has changed.
   --If the salary is different:
