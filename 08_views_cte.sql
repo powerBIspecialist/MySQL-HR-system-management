@@ -1,1 +1,117 @@
 
+WITH active_departments AS (
+    SELECT *
+    FROM departments
+    WHERE active = 'active'
+)
+SELECT *
+FROM active_departments;
+
+WITH dept_emp_count AS (
+    SELECT 
+        dept_id,
+        COUNT(*) AS total_employees
+    FROM employees
+    GROUP BY dept_id
+)
+SELECT *
+FROM dept_emp_count;
+
+-- 3. High salary employees
+WITH high_salary AS (
+    SELECT *
+    FROM employees
+    WHERE salary > 10000
+)
+SELECT *
+FROM high_salary;
+
+WITH high_salary AS (
+    SELECT *
+    FROM employees
+    WHERE salary > 10000
+)
+SELECT *
+FROM high_salary;
+
+WITH emp_hierarchy AS (
+    SELECT 
+        e.emp_id,
+        e.first_name,
+        e.last_name,
+        e.manager_id
+    FROM employees e
+)
+SELECT *
+FROM emp_hierarchy;
+
+WITH active_projects AS (
+    SELECT *
+    FROM projects
+    WHERE status = 'ACTIVE'
+)
+SELECT *
+FROM active_projects;
+
+
+WITH project_budget AS (
+    SELECT 
+        project_id,
+        project_name,
+        budget
+    FROM projects
+)
+SELECT *
+FROM project_budget;
+
+WITH emp_projects_cte AS (
+    SELECT *
+    FROM emp_projects
+)
+SELECT *
+FROM emp_projects_cte;
+
+WITH project_hours AS (
+    SELECT 
+        project_id,
+        SUM(hours_worked) AS total_hours
+    FROM emp_projects
+    GROUP BY project_id
+)
+SELECT *
+FROM project_hours;
+
+WITH attendance_cte AS (
+    SELECT *
+    FROM attendance
+)
+SELECT *
+FROM attendance_cte;
+
+WITH total_hours AS (
+    SELECT 
+        emp_id,
+        SUM(hours) AS total_hours
+    FROM attendance
+    GROUP BY emp_id
+)
+SELECT *
+FROM total_hours;
+
+WITH salary_history AS (
+    SELECT *
+    FROM salary_audit
+)
+SELECT *
+FROM salary_history;
+
+WITH latest_salary AS (
+    SELECT *
+    FROM salary_audit
+    WHERE changed_at = (
+        SELECT MAX(changed_at)
+        FROM salary_audit
+    )
+)
+SELECT *
+FROM latest_salary;
