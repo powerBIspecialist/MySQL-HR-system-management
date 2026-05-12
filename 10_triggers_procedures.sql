@@ -1,5 +1,7 @@
-        -- Triggers and stored procedures are grouped in a dedicated script to separate business logic from query and schema layers,
-        -- following clean database architecture principles
+-- TRIGGERS & STORED PROCEDURES
+-- This file contains database business logic:
+-- - Triggers: automatic actions on data changes
+-- - Stored Procedures: reusable SQL logic
 
 DELIMITER $$
 
