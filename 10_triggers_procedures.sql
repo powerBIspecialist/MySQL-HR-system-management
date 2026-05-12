@@ -109,3 +109,37 @@ END$$
 
 DELIMITER ;
 
+
+CREATE PROCEDURE GetHighSalaryEmployees()
+AS
+BEGIN
+    SELECT *
+    FROM employees
+    WHERE salary > 10000;
+END;
+
+
+
+
+CREATE FUNCTION GetTotalEmployees()
+RETURNS INT
+AS
+BEGIN
+    DECLARE total INT;
+
+    SELECT COUNT(*) INTO total
+    FROM employees;
+
+    RETURN total;
+END;
+
+
+CREATE TRIGGER trg_after_employee_insert
+AFTER INSERT ON employees
+FOR EACH ROW
+BEGIN
+    INSERT INTO audit_log(message)
+    VALUES ('New employee added');
+END;
+
+
