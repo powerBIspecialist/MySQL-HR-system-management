@@ -184,6 +184,10 @@ CREATE TABLE salary_audit (
     changed_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     changed_by VARCHAR(100) DEFAULT (USER()),
 
+	CONSTRAINT fk_salary_audit 
+		FOREIGN KEY (emp_id) 
+		REFERENCES employees(emp_id),
+
     CONSTRAINT pk_salary_audit
         PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
