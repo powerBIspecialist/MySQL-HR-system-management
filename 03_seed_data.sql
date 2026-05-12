@@ -1,6 +1,9 @@
     -- INSERT seed data (single row + multiple rows)
 
 
+-- Seed Data Layer
+-- Purpose: populate database with realistic HR data for testing
+
   -- 01.01 INSERT seed data in single row
 INSERT INTO departments (name, location, budget, active)
   VALUES
@@ -109,8 +112,7 @@ INSERT INTO attendance (emp_id, work_date, hours, record_type, notes)
 (9, '2026-05-05', 8.00, 'work', 'Recruiting'),
 (11, '2026-05-05', 8.00, 'work', NULL);
 
-
-  -- 06.01 UPDATE with WHERE
+    -- 06.01 UPDATE with WHERE
   --Promote employee 4 and increase salary
 UPDATE employees
 SET job_title = 'Senior Backend Developer',
