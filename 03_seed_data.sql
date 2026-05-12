@@ -156,3 +156,8 @@ WHERE dept_id = 2;
 
   -- 06.06 If an error occurs before COMMIT, the transaction can be canceled using
 ROLLBACK;
+
+
+-- END OF SEEL DATA MODULE
+-- Total tables populated with data: 5
+-- Covers: CREATE\DROP DATABASE, USE, SHOW, SET 
