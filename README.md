@@ -18,3 +18,20 @@ Exemple Queries
 Screen Shots
 
 How to Run
+
+
+Core Features
+
+- Database schema design and setup for an organizational system
+- Creation of relational tables with defined relationships
+- Data population using seed scripts
+- Complex SQL querying for data retrieval (DQL operations)
+- Advanced JOIN operations for relational data analysis
+- Aggregation queries for reporting and statistical insights
+- Subquery-based data filtering and computation
+- Common Table Expressions (CTEs) for modular query design
+- View creation for reusable analytical queries
+- Indexing for query optimization and performance improvement
+- Trigger and stored procedure implementation for automation
+- Performance analysis and query optimization techniques
+- Documentation of database relationships and structure
