@@ -4,12 +4,12 @@
 -- IS NULL / IS NOT NULL
 -- CASE WHEN
 
-  -- 01. SELECT * (ALL)
+  -- 01.01. SELECT * (ALL)
   -- Returns all columns and all rows from the employees table
 SELECT *
   FROM employees;
 
-  -- 02. ALIASES (AS)
+  -- 01.02. ALIASES (AS)
   -- Renames columns in the output for better readability (does NOT change table structure)
 SELECT
     emp_id AS employee_id,
@@ -18,7 +18,7 @@ SELECT
     salary AS monthly_salary
 FROM employees;
 
-  -- 03. WHERE with AND
+  -- 01.03. WHERE with AND
   -- Returns employees from department 2 AND with salary greater than 9000
 SELECT
     first_name,
@@ -28,7 +28,7 @@ FROM employees
 WHERE dept_id = 2
 AND salary > 9000;
 
-  -- 04. WHERE with OR
+  -- 01.04. WHERE with OR
   -- Returns employees from department 1 OR department 8
 SELECT
     first_name,
@@ -38,7 +38,7 @@ FROM employees
 WHERE dept_id = 1
 OR dept_id = 8;
 
-  -- 05. NOT condition (with WHERE)
+  -- 01.05. NOT condition (with WHERE)
   -- Returns all departments that are not inactive (only active ones)
 SELECT
     name,
@@ -46,7 +46,7 @@ SELECT
 FROM departments
 WHERE NOT active = 'inactive';
 
-  -- 06. BETWEEN
+  -- 01.06. BETWEEN
   -- Returns employees whose salary is between 7000 and 12000 (inclusive)
 SELECT
     first_name,
@@ -55,7 +55,7 @@ SELECT
 FROM employees
 WHERE salary BETWEEN 7000 AND 12000;
 
-  -- 07. NOT BETWEEN
+  -- 01.07. NOT BETWEEN
   -- Returns employees whose salary is outside that range
 SELECT
     first_name,
@@ -64,7 +64,7 @@ SELECT
 FROM employees
 WHERE salary NOT BETWEEN 6000 AND 10000;
 
-  -- 08. IN
+  -- 01.08. IN
   -- Returns employees from departments 2, 8, or 10
 SELECT
     first_name,
@@ -73,7 +73,7 @@ SELECT
 FROM employees
 WHERE dept_id IN (2, 8, 10);
 
-  -- 09 NOT IN
+  -- 01.09 NOT IN
   -- Excludes employees from departments 1, 3, and 5
 SELECT
     first_name,
@@ -82,7 +82,7 @@ SELECT
 FROM employees
 WHERE dept_id NOT IN (1, 3, 5);
 
-  -- 10. LIKE (starts with)
+  -- 01.10. LIKE (starts with)
   -- Finds employees whose first name starts with "A"
 SELECT
     first_name,
@@ -90,7 +90,7 @@ SELECT
 FROM employees
 WHERE first_name LIKE 'A%';
 
-  -- 11. LIKE (contains)
+  -- 01.11. LIKE (contains)
   -- Finds projects that contain the word "System"
 SELECT
     project_name,
@@ -98,7 +98,7 @@ SELECT
 FROM projects
 WHERE project_name LIKE '%System%';
 
-  -- 12. IS NULL
+  -- 01.12. IS NULL
   -- Finds employees who do NOT have a manager (top-level employee like CEO)
 SELECT
     first_name,
@@ -107,19 +107,19 @@ SELECT
 FROM employees
 WHERE manager_id IS NULL;
 
-  -- 13. IS NOT NULL
+  -- 01.13. IS NOT NULL
   -- Returns employees who have a phone number
 SELECT first_name, last_name, phone
 FROM employees
 WHERE phone IS NOT NULL;
 
-  -- 14. DISTINCT
+  -- 01.14. DISTINCT
   -- Returns only unique project statuses (no duplicates)
 SELECT DISTINCT
     status
 FROM projects;
 
-  -- 15. ORDER BY ASC
+  -- 01.15. ORDER BY ASC
   -- Sorts employees by salary from lowest to highest
 SELECT
     first_name,
@@ -128,7 +128,7 @@ SELECT
 FROM employees
 ORDER BY salary ASC;
 
-  -- 16. ORDER BY DESC
+  -- 01.16. ORDER BY DESC
   -- Sorts projects from highest budget to lowest
 SELECT
     project_name,
@@ -136,7 +136,7 @@ SELECT
 FROM projects
 ORDER BY budget DESC;
 
-  -- 17. LIMIT
+  -- 01.17. LIMIT
   -- Returns top 5 highest paid employees
 SELECT
     first_name,
@@ -146,7 +146,7 @@ FROM employees
 ORDER BY salary DESC
 LIMIT 5;
 
-  -- 18. LIMIT + OFFSET
+  -- 01.18. LIMIT + OFFSET
   -- Skips first 5 results and returns next 5 (pagination)
 SELECT
     first_name,
@@ -156,7 +156,7 @@ FROM employees
 ORDER BY salary DESC
 LIMIT 5 OFFSET 5;
 
-  -- 19. CASE WHEN – Employee Level Classification
+  -- 01.19. CASE WHEN – Employee Level Classification
   -- This query creates a new derived column called employee_level based on salary
 SELECT
     first_name,
@@ -170,7 +170,7 @@ SELECT
     END AS employee_level
 FROM employees;
 
-  -- 20. MULTI-CONDITION FILTER
+  -- 01.20. MULTI-CONDITION FILTER
   -- Filters employees using multiple conditions (AND logic)
 SELECT first_name, last_name, salary, dept_id
 FROM employees
@@ -178,7 +178,7 @@ WHERE dept_id = 2
 AND salary > 8000
 AND hire_date >= '2025-01-01';
 
--- 21. COMPLEX FILTER + CASE + SORTING
+-- 01.21. COMPLEX FILTER + CASE + SORTING
 --Returns: 
   -- employees from specific departments
   -- with salary in range
@@ -204,6 +204,7 @@ ORDER BY salary DESC
 LIMIT 10;
 
 
+        --THE END--
 
 
 
