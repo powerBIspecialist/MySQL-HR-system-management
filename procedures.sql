@@ -19,7 +19,7 @@ CREATE TRIGGER trg_salary_audit
 BEFORE UPDATE ON employees
 FOR EACH ROW
 BEGIN
-    IF NOT (OLD.salary <=> NEW.salary) THEN
+    IF OLD.salary <> NEW.salary THEN
         INSERT INTO salary_audit (
             emp_id,
             old_salary,
@@ -31,7 +31,9 @@ BEGIN
             NEW.salary
         );
     END IF;
-END
+END$$
+
+DELIMITER ;
 
     --  01.01 - STORED PROCEDURE
     -- PROCEDURE 1 - Add Employee
