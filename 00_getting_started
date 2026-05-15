@@ -1,3 +1,5 @@
+-- Connect to MySQL
+
 mysql -u <root> -p
 
 mysql [hr_databse]
