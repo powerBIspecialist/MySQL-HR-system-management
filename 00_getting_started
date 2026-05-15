@@ -1,9 +1,9 @@
 -- Connect to MySQL
 
-mysql -u <root> -p
+mysql -u root -p
 
-mysql [hr_databse]
+mysql hr_databse
 
-mysql -h <192.168.1.222> -P <3306> -u <root> -p [hr_system]
+mysql -h 192.168.1.222 -P 3306 -u root -p hr_system
 
-mysql -h <192.168.1.222> -u <root> -p [hr_system]
+mysql -h 192.168.1.222 -u root -p hr_system
