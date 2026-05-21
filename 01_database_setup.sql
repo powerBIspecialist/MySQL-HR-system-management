@@ -10,7 +10,7 @@ CREATE DATABASE hr_system;
 
 -- 01.03 Select hr_system as the active database
 CONNECT hr_system; --as alternative we can use :
-CONNECT hr_system;
+USE hr_system;
 
 -- 01.04 Show all databases available on the server
 SHOW DATABASES;
